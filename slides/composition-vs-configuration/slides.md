@@ -35,9 +35,26 @@ drawings:
 
 <Logo />
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+
+---
+---
+# About Me - Thomas Findlay
+
+<div class="grid grid-cols-[2fr,1fr]">
+  <ul>
+    <li>Full-Stack Web & Mobile Developer with 10 years of programming experience</li>
+    <li>Co-Owner of Findlay Web Tech</li>
+    <li>Mentor & Consultant at Codementor.io</li>
+    <li>The author of "React - The Road To Enterprise" & "Vue - The Road To Enterprise" books</li>
+    <li>Technical Writer for Telerik and The Road To Enterprise blogs</li>
+  </ul>
+  <div>
+    <img className="w-64" src="/about.jpg">
+  </div>
+</div>
+
+<Logo />
+
 
 ---
 layout: quote
