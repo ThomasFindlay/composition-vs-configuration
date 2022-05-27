@@ -14,9 +14,9 @@ const Icons = {
 };
 
 const AlertIcon = props => {
-  const { className, containerClass } = props;
+  const { className, containerClass, icon } = props;
   const variant = useVariantContext();
-  const Icon = Icons[variant];
+  const Icon = Icons[icon];
   return Icon ? (
     <div className={clsx(style.alertIconBox, containerClass)}>
       <img

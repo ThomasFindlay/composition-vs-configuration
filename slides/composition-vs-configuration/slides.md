@@ -449,18 +449,20 @@ const Alert = props => {
 layout: eight-four-cols
 ---
 
-## Alert Content
+# Alert Content
 
 <Logo />
 
 ::left::
 
-```jsx{all|4-7}
+```jsx{all|2|4-9}
 const AlertContent = props => {
-  const { className, children } = props;
+  const { className, children, ...alertContentProps } = props;
   return (
     <div 
-      className={clsx(style.alertContent, className)}>
+      className={clsx(style.alertContent, className)}
+      {...alertContentProps}
+    >
       {children}
     </div>
   );
@@ -479,20 +481,20 @@ export default AlertContent;
 layout: eight-four-cols
 ---
 
-## Alert Body
+# Alert Body
 
 <Logo />
 
 ::left::
 
-```jsx{all|7-9}
-import clsx from "clsx";
-import style from "../../alert.module.scss";
-
+```jsx{all|2|4-9}
 const AlertBody = props => {
-  const { className } = props;
+  const { className, ...alertBodyProps } = props;
   return (
-    <div className={clsx(style.alertBody, className)}>
+    <div 
+      className={clsx(style.alertBody, className)}
+      {...alertBodyProps}
+    >
       {props.children}
     </div>
   );
@@ -575,11 +577,14 @@ layout: eight-four-cols
 
 ::left::
 
-```jsx{all|4-6}
+```jsx{all|2|4-9}
 const AlertHeader = props => {
-  const { children, className } = props;
+  const { children, className, ...alertHeaderProps } = props;
   return (
-    <div className={clsx(style.alertHeader,  className)}>
+    <div 
+      className={clsx(style.alertHeader,  className)}
+      {...alertHeaderProps}  
+    >
       {children}
     </div>
   );
@@ -745,16 +750,19 @@ layout: eight-four-cols
 
 ::left::
 
-```jsx{all|3,7|9}
+```jsx{all|3,7|10}
 import clsx from "clsx";
 import style from "../../alert.module.scss";
 import { useVariantContext } from "../context/VariantContextProvider";
 
 const AlertHeader = props => {
-  const { children, className } = props;
+  const { children, className,  ...alertHeaderProps } = props;
   const variant = useVariantContext();
   return (
-    <div className={clsx(style.alertHeader, style[variant], className)}>
+    <div 
+      className={clsx(style.alertHeader, style[variant], className)}
+      {...alertHeaderProps}  
+    >
       {children}
     </div>
   );
@@ -780,16 +788,19 @@ layout: eight-four-cols
 
 ::left::
 
-```jsx{all|3,7|9-11}
+```jsx{all|3,7|10}
 import clsx from "clsx";
 import style from "../../alert.module.scss";
 import { useVariantContext } from "../context/VariantContextProvider";
 
 const AlertBody = props => {
-  const { className } = props;
+  const { className, ...alertBodyProps } = props;
   const variant = useVariantContext();
   return (
-    <div className={clsx(style.alertBody, style[variant], className)}>
+    <div 
+      className={clsx(style.alertBody, style[variant], className)}
+      {...alertBodyProps}  
+    >
       {props.children}
     </div>
   );
@@ -859,7 +870,7 @@ layout: eight-four-cols
 
 <div>
   
-```jsx{all|1-6|10,11,17|12-20}
+```jsx{all|1-6|9,11,12-20|10,17|12-20}
 const Icons = {
   success: Success,
   danger: Danger,
@@ -868,9 +879,9 @@ const Icons = {
 };
 
 const AlertIcon = props => {
-  const { className, containerClass } = props;
+  const { className, containerClass, icon } = props;
   const variant = useVariantContext();
-  const Icon = Icons[variant];
+  const Icon = Icons[icon];
   return Icon ? (
     <div className={clsx(style.alertIconBox, containerClass)}>
       <img
@@ -881,6 +892,7 @@ const AlertIcon = props => {
     </div>
   ) : null;
 };
+
 export default AlertIcon;
 
 ```
@@ -1053,6 +1065,13 @@ const Alert = props => {
 - Composition approach offers more flexibility, but requires knowledge of how to compose the building blocks.
 - Configuration approach is less flexible, but is simpler to use and makes it easier to stick to the design system.
 - We can combine both approaches to get the best of both worlds.
+
+
+<h3 class="mt-16">You can find code examples here:</h3>
+
+<div class="pt-4">
+  <a href="https://github.com/ThomasFindlay/composition-vs-configuration" target="_blank">https://github.com/ThomasFindlay/composition-vs-configuration</a>
+</div>
 
 ---
 ---
