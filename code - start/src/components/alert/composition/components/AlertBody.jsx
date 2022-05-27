@@ -2,13 +2,13 @@ import clsx from "clsx";
 import style from "../../alert.module.scss";
 import { useVariantContext } from "../context/VariantContextProvider";
 
-const AlertHeader = props => {
-  const { children, className } = props;
+const AlertBody = props => {
+  const { className } = props;
   const variant = useVariantContext();
   return (
-    <div className={clsx(style.alertHeader, style[variant], className)}>
-      {children}
+    <div className={clsx(style.alertBody, style[variant], className)}>
+      {props.children}
     </div>
   );
 };
-export default AlertHeader;
+export default AlertBody;

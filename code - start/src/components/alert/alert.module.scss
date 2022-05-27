@@ -1,6 +1,18 @@
 .alert {
   @apply text-left flex relative border-l-4;
 
+  &.success {
+    @apply border-green-800 bg-green-100;
+  }
+
+  &.warning {
+    @apply border-amber-800 bg-amber-100;
+  }
+
+  &.info {
+    @apply border-sky-800 bg-sky-100;
+  }
+
   &.danger {
     @apply border-rose-800 bg-rose-100;
   }
